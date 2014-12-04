@@ -6,7 +6,7 @@
     +3. Modules
       + angular.module("app", [])
         + array allows you to pass in other modules
-      +pass in the variable $scope to your function
-        +https://docs.angularjs.org/guide/scope
-        +Angular works by performing "dirty-checking" = checking to see if a variable has been updated 60 times per second
-        +Angular is not a good framework for complex web applications
+      + pass in the variable $scope to your function
+        + https://docs.angularjs.org/guide/scope
+        + Angular works by performing "dirty-checking" = checking to see if a variable has been updated 60 times per second
+        + Angular is not a good framework for complex web applications
