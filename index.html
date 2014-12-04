@@ -21,7 +21,7 @@
   Search: <input type="text" ng-model="friendSearchQuery"/>
   <br/>
   <a href="" ng-click="friendReverse =!friendReverse">Sort</a>
-  <ul ng-init="friends=['Ashley', 'Bob', 'Carley', 'Dave']">
+  <ul>
     <li ng-repeat="friend in friends | orderBy:'':friendReverse | filter:friendSearchQuery">{{friend | uppercase}}</li>
   </ul>
   </div>
