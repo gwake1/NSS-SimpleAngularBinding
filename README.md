@@ -10,3 +10,5 @@
         + https://docs.angularjs.org/guide/scope
         + Angular works by performing "dirty-checking" = checking to see if a variable has been updated 60 times per second
         + Angular is not a good framework for complex web applications
+        + The controller talks to the view and the view talks to the controller through $scope
+        + The $scope object is the view model

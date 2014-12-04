@@ -6,8 +6,7 @@
 
 var app = angular.module("myApp", []);
 
-app.controller('SimpleController', function($scope){
-  $scope.name = "Gerald";
-  $scope.friends=['Ashley', 'Bob', 'Carley', 'Dave'];
-
+app.controller('SimpleController', function(){
+  this.name = "Gerald";
+  this.friends=['Ashley', 'Bob', 'Carley', 'Dave'];
 });

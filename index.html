@@ -8,21 +8,21 @@
 </head>
 <body>
 
-  <div class="container" ng-controller="SimpleController">
-    <h1>Output from Name: {{name}}</h1>
+  <div class="container" ng-controller="SimpleController as smplctrl">
+    <h1>Output from Name: {{smplctrl.name}}</h1>
 
-  Name: <input type="text" ng-model="name"/> {{name}}
+  Name: <input type="text" ng-model="smplctrl.name"/> {{smplctrl.name}}
 
   <h2>My Friends</h2>
 
-  New Friend: <input type="text" ng-model="newFriend"/><button ng-click="friends.push(newFriend)">Add</button>
+  New Friend: <input type="text" ng-model="smplctrl.newFriend"/><button ng-click="friends.push(smplctrl.newFriend)">Add</button>
   <br/>
 
-  Search: <input type="text" ng-model="friendSearchQuery"/>
+  Search: <input type="text" ng-model="smplctrl.friendSearchQuery"/>
   <br/>
-  <a href="" ng-click="friendReverse =!friendReverse">Sort</a>
+  <a href="" ng-click="smplctrl.friendReverse =!smplctrl.friendReverse">Sort</a>
   <ul>
-    <li ng-repeat="friend in friends | orderBy:'':friendReverse | filter:friendSearchQuery">{{friend | uppercase}}</li>
+    <li ng-repeat="friend in smplctrl.friends | orderBy:'':smplctrl.friendReverse | filter:smplctrl.friendSearchQuery">{{friend | uppercase}}</li>
   </ul>
   </div>
 <script src="bower_components/angular/angular.js"></script>
