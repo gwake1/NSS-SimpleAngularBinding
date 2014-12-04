@@ -28,6 +28,7 @@ app.controller('TodoController', function(){
   ];
 
   vm.addNewTask = function(){
-    vm.tasks.push(vm.newTask)
+    vm.tasks.push(vm.newTask);
+    vm.newTask = null;
   }
 });
