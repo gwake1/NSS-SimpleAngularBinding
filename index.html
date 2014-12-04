@@ -14,7 +14,7 @@
 
   <h2>My Friends</h2>
   <ul ng-init="friends=['Ashley', 'Bob', 'Carley', 'Dave']">
-    <li ng-repeat="friend in friends">{{friend}}</li>
+    <li ng-repeat="friend in friends | filter:name">{{friend}}</li>
   </ul>
   </div>
 <script src="bower_components/angular/angular.js"></script>

@@ -1,5 +1,5 @@
 ;(function(){
   'use strict';
 
-  var hello = 'world';  
+  var hello = 'world';
 }());
