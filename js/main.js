@@ -6,7 +6,6 @@
 
 var app = angular.module("myApp", []);
 
-app.controller('SimpleController', function(){
-  this.name = "Gerald";
-  this.friends=['Ashley', 'Bob', 'Carley', 'Dave'];
+app.controller('TodoController', function(){
+  var vm = this;
 });
