@@ -25,5 +25,9 @@ app.controller('TodoController', function(){
     desc: 'Bills, Bills... Bills',
     due:  'Never'
   }
-  ]
+  ];
+
+  vm.addNewTask = function(){
+    vm.tasks.push(vm.newTask)
+  }
 });
