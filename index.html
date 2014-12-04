@@ -9,12 +9,13 @@
 <body>
 
   <div class="container">
-    <h1>My Site {{name}}</h1>
+    <h1>Output from Name: {{name}}</h1>
   Name: <input type="text" ng-model="name"/> {{name}}
 
   <h2>My Friends</h2>
+  Search: <input type="text" ng-model="friendSearch"/>
   <ul ng-init="friends=['Ashley', 'Bob', 'Carley', 'Dave']">
-    <li ng-repeat="friend in friends | filter:name">{{friend}}</li>
+    <li ng-repeat="friend in friends | filter:friendSearch">{{friend}}</li>
   </ul>
   </div>
 <script src="bower_components/angular/angular.js"></script>
