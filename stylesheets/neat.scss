@@ -1,0 +1,21 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+.container {
+  @include outer-container;
+  label {
+    @include span-columns(1);
+  }
+  input {
+    @include span-columns(2);
+  }
+  table {
+    @include fill-parent();
+    th {
+      @include span-columns(3);
+    }
+    td {
+      @include span-columns(3);
+    }
+  }
+}

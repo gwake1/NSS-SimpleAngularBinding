@@ -7,16 +7,17 @@
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/neat.css">
   <title>My ToDo App</title>
 </head>
 <body>
 
   <div class="container" ng-controller="TodoController as todoCtrl" novalidate>
     <h1>My ToDo's</h1>
-    <form name="newTaskForm" ng-submit="todoCtrl.addNewTask()">
-      <label>Name: </label><input type="text" ng-model="todoCtrl.newTask.name" required>
-      <label>Description: </label><input type="text" ng-model="todoCtrl.newTask.desc" required>
-      <label>Due Date: </label><input type="date" ng-model="todoCtrl.newTask.due" required>
+    <form name="newTaskForm" ng-submit="newTaskForm.$valid && todoCtrl.addNewTask(task)">
+      <label for="name">Name: </label><input type="text" id="name" ng-model="todoCtrl.newTask.name" required>
+      <label for="desc">Description: </label><input type="text" id="desc" ng-model="todoCtrl.newTask.desc" required>
+      <label for="due">Due Date: </label><input type="date" id="due" ng-model="todoCtrl.newTask.due" required>
       <input type="Submit" value="Submit">
       <!--<button ng-click="todoCtrl.addNewTask()">Add Task</button>-->
     </form>
@@ -32,7 +33,8 @@
         <tr ng-repeat="task in todoCtrl.tasks">
           <td>{{task.name}}</td>
           <td>{{task.desc}}</td>
-          <td>{{task.due}}</td>
+          <td>{{task.due | date}}</td>
+          <td><button ng-click="todoCtrl.removeTask(task)">Delete</button></td>
         </tr>
       </tbody>
     </table>

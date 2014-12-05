@@ -31,4 +31,10 @@ app.controller('TodoController', function(){
     vm.tasks.push(vm.newTask);
     vm.newTask = null;
   }
+
+  vm.removeTask = function(task){
+    var i = vm.tasks.indexOf(task);
+    vm.tasks.splice(i,1);
+  }
+
 });
