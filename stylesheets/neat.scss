@@ -4,7 +4,7 @@
 .container {
   @include outer-container;
   label {
-    @include span-columns(1);
+    @include span-columns(2);
   }
   input {
     @include span-columns(2);

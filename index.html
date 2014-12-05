@@ -15,21 +15,26 @@
   <div class="container" ng-controller="TodoController as todoCtrl">
     <h1>My ToDo's</h1>
     <form name="newTaskForm" ng-submit="newTaskForm.$valid && todoCtrl.addNewTask(task)" novalidate>
-
-      <div class="form-group has-error">
-        <label for="name">Name: </label>
-        <input type="text" id="name" ng-model="todoCtrl.newTask.name" required>
+      <div class="form-group" ng-class="{'has-error':!todoCtrl.newTask.name}">
+        <label class="control-label" for="name">Name: </label>
+        <input class="form-control" type="text" id="name" ng-model="todoCtrl.newTask.name" required>
       </div>
-
-      <label for="desc">Description: </label><input type="text" id="desc" ng-model="todoCtrl.newTask.desc" required>
-      <label for="due">Due Date: </label><input type="date" id="due" ng-model="todoCtrl.newTask.due" required>
-
-      <select ng-model="todoCtrl.newTask.priority">
-        <option value="{{val}}" ng-repeat="(val, text) in todoCtrl.priorityOptions">{{text}}</option>
-        <!-- <option value="High">High</option>
-        <option value="Medium" selected>Medium</option>
-        <option value="Low">Low</option> -->
-      </select>
+      <div class="form-group" ng-class="{'has-error':!todoCtrl.newTask.desc}">
+        <label class="control-label" for="desc">Description: </label>
+        <input class="form-control" type="text" id="desc" ng-model="todoCtrl.newTask.desc" required>
+      </div>
+      <div class="form-group" ng-class="{'has-error':!todoCtrl.newTask.due}">
+        <label class="control-label" for="due">Due Date: </label>
+        <input class="form-control" type="date" id="due" ng-model="todoCtrl.newTask.due" required>
+      </div>
+      <div class="form-group">
+        <select ng-model="todoCtrl.newTask.priority">
+          <option value="{{val}}" ng-repeat="(val, text) in todoCtrl.priorityOptions">{{text}}</option>
+          <!-- <option value="High">High</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="Low">Low</option> -->
+        </select>
+      </div>
       <input type="Submit" value="Add Task" ng-show="newTaskForm.$valid">
       <!--<button ng-click="todoCtrl.addNewTask()">Add Task</button>-->
     </form>
