@@ -12,13 +12,25 @@
 </head>
 <body>
 
-  <div class="container" ng-controller="TodoController as todoCtrl" novalidate>
+  <div class="container" ng-controller="TodoController as todoCtrl">
     <h1>My ToDo's</h1>
-    <form name="newTaskForm" ng-submit="newTaskForm.$valid && todoCtrl.addNewTask(task)">
-      <label for="name">Name: </label><input type="text" id="name" ng-model="todoCtrl.newTask.name" required>
+    <form name="newTaskForm" ng-submit="newTaskForm.$valid && todoCtrl.addNewTask(task)" novalidate>
+
+      <div class="form-group has-error">
+        <label for="name">Name: </label>
+        <input type="text" id="name" ng-model="todoCtrl.newTask.name" required>
+      </div>
+
       <label for="desc">Description: </label><input type="text" id="desc" ng-model="todoCtrl.newTask.desc" required>
       <label for="due">Due Date: </label><input type="date" id="due" ng-model="todoCtrl.newTask.due" required>
-      <input type="Submit" value="Submit">
+
+      <select ng-model="todoCtrl.newTask.priority">
+        <option value="{{val}}" ng-repeat="(val, text) in todoCtrl.priorityOptions">{{text}}</option>
+        <!-- <option value="High">High</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="Low">Low</option> -->
+      </select>
+      <input type="Submit" value="Add Task" ng-show="newTaskForm.$valid">
       <!--<button ng-click="todoCtrl.addNewTask()">Add Task</button>-->
     </form>
     <table>
@@ -27,6 +39,7 @@
           <th>Task Name</th>
           <th>Task Description</th>
           <th>Task Due Date</th>
+          <th>Priority</th>
         </tr>
       </thead>
       <tbody>
@@ -34,11 +47,14 @@
           <td>{{task.name}}</td>
           <td>{{task.desc}}</td>
           <td>{{task.due | date}}</td>
+          <td>{{task.priority}}</td>
           <td><button ng-click="todoCtrl.removeTask(task)">Delete</button></td>
         </tr>
       </tbody>
     </table>
   </div>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="js/main.js"></script>
 </body>

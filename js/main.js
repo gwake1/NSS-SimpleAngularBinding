@@ -12,29 +12,46 @@ app.controller('TodoController', function(){
   {
     name: 'Learn Angular',
     desc: 'Angular will make so happy',
-    due:  'Today'
+    due:  'Today',
+    priority: 'High'
 
   },
   {
     name: 'Finish Tic-Tac-Toe',
     desc: 'A very soothing Exercise',
-    due:  'Monday'
+    due:  'Monday',
+    priority: 'Medium'
   },
   {
     name: 'Get A Job',
     desc: 'Bills, Bills... Bills',
-    due:  'Never'
+    due:  'Never',
+    priority: 'Low'
   }
   ];
 
   vm.addNewTask = function(){
     vm.tasks.push(vm.newTask);
-    vm.newTask = null;
+    vm.newTask = _freshTask();
   }
 
   vm.removeTask = function(task){
     var i = vm.tasks.indexOf(task);
     vm.tasks.splice(i,1);
+  }
+
+  vm.newTask = _freshTask();
+
+  vm.priorityOptions= {
+    high: "High",
+    medium: "Medium",
+    low: "Low"
+  }
+
+  function _freshTask(){
+    return {
+      priority: "high"
+    }
   }
 
 });

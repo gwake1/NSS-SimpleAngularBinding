@@ -12,10 +12,10 @@
   table {
     @include fill-parent();
     th {
-      @include span-columns(3);
+      @include span-columns(2);
     }
     td {
-      @include span-columns(3);
+      @include span-columns(2);
     }
   }
 }
