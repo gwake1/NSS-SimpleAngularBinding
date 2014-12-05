@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
   <title>My ToDo App</title>
 </head>
 <body>
 
-  <div class="container" ng-controller="TodoController as todoCtrl">
+  <div class="container" ng-controller="TodoController as todoCtrl" novalidate>
     <h1>My ToDo's</h1>
-    <form>
-      <label>Name: </label><input type="text" ng-model="todoCtrl.newTask.name">
-      <label>Description: </label><input type="text" ng-model="todoCtrl.newTask.desc">
-      <label>Due Date: </label><input type="date" ng-model="todoCtrl.newTask.due">
-      <button ng-click="todoCtrl.addNewTask()">Add Task</button>
+    <form name="newTaskForm" ng-submit="todoCtrl.addNewTask()">
+      <label>Name: </label><input type="text" ng-model="todoCtrl.newTask.name" required>
+      <label>Description: </label><input type="text" ng-model="todoCtrl.newTask.desc" required>
+      <label>Due Date: </label><input type="date" ng-model="todoCtrl.newTask.due" required>
+      <input type="Submit" value="Submit">
+      <!--<button ng-click="todoCtrl.addNewTask()">Add Task</button>-->
     </form>
     <table>
       <thead>
